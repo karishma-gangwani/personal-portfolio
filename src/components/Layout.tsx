@@ -120,7 +120,7 @@ export function Layout() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Connect</h3>
               <p className="text-slate-400 text-sm mb-4">
-                Based in Bangalore, India. Available for remote and on-site consulting engagements.
+                Based in India. Available for remote and on-site consulting engagements.
               </p>
               <div className="space-y-2 text-sm">
                 <a 

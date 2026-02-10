@@ -67,9 +67,9 @@ export function Home() {
             </div>
             <div className="relative">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1758691463198-dc663b8a64e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjb25zdWx0aW5nJTIwb2ZmaWNlJTIwd29ya3NwYWNlfGVufDF8fHx8MTc3MDcxMzYzM3ww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Professional consulting workspace"
-                className="rounded-lg shadow-2xl w-full h-auto"
+                // src="https://images.unsplash.com/photo-1758691463198-dc663b8a64e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjb25zdWx0aW5nJTIwb2ZmaWNlJTIwd29ya3NwYWNlfGVufDF8fHx8MTc3MDcxMzYzM3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                // alt="Professional consulting workspace"
+                // className="rounded-lg shadow-2xl w-full h-auto"
               />
             </div>
           </div>
@@ -110,9 +110,9 @@ export function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1760346546771-a81d986459ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN0cmF0ZWd5JTIwcGxhbm5pbmclMjBtZWV0aW5nfGVufDF8fHx8MTc3MDcxMzYzM3ww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Business strategy planning"
-                className="rounded-lg shadow-xl w-full h-auto"
+                // src="https://images.unsplash.com/photo-1760346546771-a81d986459ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN0cmF0ZWd5JTIwcGxhbm5pbmclMjBtZWV0aW5nfGVufDF8fHx8MTc3MDcxMzYzM3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                // alt="Business strategy planning"
+                // className="rounded-lg shadow-xl w-full h-auto"
               />
             </div>
             <div>
