@@ -107,7 +107,7 @@ export function Home() {
       {/* Services Overview */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 gap-12 items-center">
             <div>
               <ImageWithFallback
                 // src="https://images.unsplash.com/photo-1760346546771-a81d986459ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN0cmF0ZWd5JTIwcGxhbm5pbmclMjBtZWV0aW5nfGVufDF8fHx8MTc3MDcxMzYzM3ww&ixlib=rb-4.1.0&q=80&w=1080"
