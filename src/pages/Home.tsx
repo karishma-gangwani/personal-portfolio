@@ -37,7 +37,7 @@ export function Home() {
     "Digital Health & Clinical Decision Support",
     "Product Strategy & Development",
     "Data Science & Analytics",
-    "Science Communications",
+    "Science Communications & Brand Building",
     "Grant Writing & Funding Strategy",
     "Market Research & Operations",
   ];
