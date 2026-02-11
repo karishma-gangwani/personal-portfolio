@@ -40,7 +40,7 @@ export function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-slate-50 py-20 md:py-32">
+      <section className="relative bg-gradient-to-br from-blue-50 to-slate-50 py-12 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -77,7 +77,7 @@ export function Home() {
       </section>
 
       {/* Highlights */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl mb-4">What I Offer</h2>
@@ -105,7 +105,7 @@ export function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-12 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 items-center">
             <div>
@@ -143,7 +143,7 @@ export function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600 text-white">
+      <section className="py-12 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center items-center">
           <h2 className="text-3xl md:text-4xl mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl mb-8 text-blue-100">
@@ -159,7 +159,7 @@ export function Home() {
       </section>
 
       {/* Case Studies Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl mb-4">Featured Case Studies</h2>

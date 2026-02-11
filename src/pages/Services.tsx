@@ -135,7 +135,7 @@ export function Services() {
       </section>
 
       {/* Approach Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-12 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -203,7 +203,7 @@ export function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600 text-white">
+      <section className="py-12 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl mb-6">Let's Work Together</h2>
           <p className="text-xl mb-8 text-blue-100">

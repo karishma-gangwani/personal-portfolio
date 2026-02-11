@@ -49,7 +49,7 @@ export function About() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-slate-50 py-20">
+      <section className="bg-gradient-to-br from-blue-50 to-slate-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -82,7 +82,7 @@ export function About() {
       </section>
 
       {/* Expertise */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl mb-4">Areas of Expertise</h2>
@@ -110,7 +110,7 @@ export function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-12 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl mb-4">Core Values</h2>
@@ -130,7 +130,7 @@ export function About() {
       </section>
 
       {/* Experience Highlights */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl mb-12 text-center">Professional Journey</h2>
           <div className="max-w-4xl mx-auto space-y-8">
@@ -185,7 +185,7 @@ export function About() {
       </section>
 
       {/* Recognition */}
-      <section className="py-20 bg-blue-600 text-white">
+      <section className="py-12 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl mb-12 text-center">Recognition & Impact</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -213,7 +213,7 @@ export function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl mb-6">Let's Connect</h2>
           <p className="text-xl text-slate-600 mb-8">

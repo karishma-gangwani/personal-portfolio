@@ -28,21 +28,24 @@ export function CaseStudyCTA({
   buttonLink = "/contact",
 }: CaseStudyCTAProps) {
   return (
+    /* py-8 reduces the top/bottom buffer padding */
     <section className="py-12 bg-blue-600 text-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Accent Bar */}
-        <div className="bg-amber-400 h-2 mb-12 rounded-full" />
+        <div className="bg-amber-400 h-1.5 mb-8 rounded-full" />
 
         {/* Content */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-slate-900">
+          {/* Removed text-slate-900 so it inherits text-white */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             {title}
           </h2>
-          <p className="text-lg lg:text-xl text-slate-700 mb-10 leading-relaxed max-w-2xl mx-auto">
+          {/* Removed text-slate-700 and reduced mb-8 for tighter spacing */}
+          <p className="text-lg lg:text-xl mb-8 leading-relaxed max-w-2xl mx-auto opacity-90">
             {description}
           </p>
           <Link to={buttonLink}>
-            <Button size="lg" className="hover:shadow-lg transition-shadow">
+            <Button size="lg" className="hover:shadow-lg transition-shadow bg-white text-blue-600 hover:bg-slate-100 border-none">
               {buttonText}
             </Button>
           </Link>
