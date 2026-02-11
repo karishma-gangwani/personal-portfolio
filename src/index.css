@@ -427,6 +427,18 @@
   }
 }
 
+/* Ensure interactive elements show the pointer cursor immediately */
+button,
+a,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[role="button"],
+[onclick] {
+  cursor: pointer;
+}
+
+
 @layer utilities {
   .\@container\/card-header {
     container: card-header / inline-size;
