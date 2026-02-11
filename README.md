@@ -1,7 +1,7 @@
 
   # Personal Consulting Website
 
-  This is a code bundle for Personal Consulting Website. The original project is available at https://www.figma.com/design/VO0Jv1OveAVBTMTx5A5Jdt/Personal-Consulting-Website.
+  This is a code bundle for my website. The original project is available at https://www.figma.com/design/VO0Jv1OveAVBTMTx5A5Jdt/Personal-Consulting-Website.
 
   ## Running the code
 
