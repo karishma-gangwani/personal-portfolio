@@ -108,52 +108,47 @@ function ContentSection({ study, isReverse }: ContentSectionProps) {
     <CardContent
       className={`p-8 flex flex-col justify-between ${isReverse ? "lg:col-start-1 lg:row-start-1" : ""}`}
     >
-      {/* keep metadata inline without badges (clean) */}
-      <div className="mb-6">
-        <div className="text-sm text-slate-500 mb-2">{study.service}</div>
-      </div>
-
-      {/* Title & Description */}
-      <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-slate-900">
-        {study.title}
-      </h2>
-      <p className="text-base text-slate-700 mb-8 leading-relaxed">
-        {study.description}
-      </p>
-
-      {/* Details Grid */}
+      {/* Content grouped — spacing controlled by wrapper */}
       <div className="space-y-6">
-        <DetailSection title="Challenge" content={study.challenge} />
-        <DetailSection title="Solution" content={study.solution} />
-
-        {/* Results List */}
         <div>
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">
-            Results
-          </h3>
-          <ul className="space-y-3">
-            {study.results.map((result: string, i: number) => (
-              <ResultItem key={i} result={result} />
-            ))}
-          </ul>
+          <div className="text-sm text-slate-500">{study.service}</div>
         </div>
 
-        {/* Publication Link */}
-        {study.publicationLink && (
-          <div className="pt-4 border-t border-slate-200">
-            <a
-              href={study.publicationLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors group"
-            >
-              {study.publicationLink.label}
-              <span className="ml-2 group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </a>
+        <div>
+          <h2 className="text-2xl lg:text-3xl font-bold text-slate-900">{study.title}</h2>
+          <p className="text-base text-slate-700 leading-relaxed">{study.description}</p>
+        </div>
+
+        {/* Details Grid — children control spacing here */}
+        <div className="space-y-6">
+          <DetailSection title="Challenge" content={study.challenge} />
+          <DetailSection title="Solution" content={study.solution} />
+
+          {/* Results List */}
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900">Results</h3>
+            <ul className="space-y-3">
+              {study.results.map((result: string, i: number) => (
+                <ResultItem key={i} result={result} />
+              ))}
+            </ul>
           </div>
-        )}
+
+          {/* Publication Link */}
+          {study.publicationLink && (
+            <div className="pt-4 border-t border-slate-200">
+              <a
+                href={study.publicationLink.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors group"
+              >
+                {study.publicationLink.label}
+                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </CardContent>
     );
@@ -167,7 +162,7 @@ interface DetailSectionProps {
 function DetailSection({ title, content }: DetailSectionProps) {
   return (
     <div>
-      <h3 className="text-lg font-semibold text-slate-900 mb-2">{title}</h3>
+      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
       <p className="text-slate-600 leading-relaxed">{content}</p>
     </div>
   );

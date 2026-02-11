@@ -49,7 +49,9 @@ export function CaseStudyFilters({
                   key={opt.value}
                   onClick={() => onToggleCategory(opt.value)}
                   aria-pressed={active}
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm border transition-all duration-150 ${
+                  title="click to show or hide the filters"
+                  aria-label={`${opt.label} filter`}
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm border transition-all duration-150 cursor-pointer ${
                     active
                       ? "bg-slate-900 text-white border-slate-900"
                       : "bg-white text-slate-700 border-slate-200"
@@ -68,7 +70,9 @@ export function CaseStudyFilters({
                   key={opt.value}
                   onClick={() => onToggleSector(opt.value)}
                   aria-pressed={active}
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm border transition-all duration-150 ${
+                  title="click to show or hide the filters"
+                  aria-label={`${opt.label} sector filter`}
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm border transition-all duration-150 cursor-pointer ${
                     active
                       ? "bg-slate-900 text-white border-slate-900"
                       : "bg-white text-slate-700 border-slate-200"
@@ -83,7 +87,9 @@ export function CaseStudyFilters({
           <div className="ml-auto flex items-center gap-3">
             <button
               onClick={resetFilters}
-              className="text-sm text-slate-600 hover:text-slate-900"
+              title="click to reset all filters"
+              aria-label="reset filters"
+              className="text-sm text-slate-600 hover:text-slate-900 cursor-pointer"
             >
               Reset Filters
             </button>
