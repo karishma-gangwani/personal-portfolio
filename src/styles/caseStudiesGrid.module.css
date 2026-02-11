@@ -1,0 +1,189 @@
+/**
+ * Case Studies Grid Responsive Styles
+ * CSS Module for responsive image sizing and smooth grid transitions
+ * 
+ * Purpose:
+ * - Responsive image containers with aspect ratio preservation
+ * - Smooth transitions when items are filtered/hidden
+ * - Better mobile/landscape/portrait orientation handling
+ */
+
+/* Image Gallery Container */
+.imageGalleryContainer {
+  width: 100%;
+  background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+  border-radius: 0.375rem;
+}
+
+/* Responsive Image Sizing */
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+/* Single image container */
+.singleImageContainer {
+  height: 160px; /* Mobile: h-40 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 0.375rem;
+}
+
+/* Multiple images container */
+.multipleImagesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.multipleImagesContainer .imageWrapper {
+  min-height: 128px; /* h-32 */
+}
+
+/* Responsive breakpoint: Tablet and above */
+@media (min-width: 1024px) {
+  .singleImageContainer {
+    height: 192px; /* Desktop: h-48 */
+  }
+
+  .multipleImagesContainer .imageWrapper {
+    min-height: 160px; /* lg:h-40 */
+  }
+}
+
+/* Image element responsive properties */
+.image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  width: auto;
+}
+
+/* Grid Animation - Smooth reflow when items are shown/hidden */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  grid-auto-rows: max-content;
+}
+
+@media (min-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Smooth transitions for grid items */
+.gridItem {
+  animation: slideInUp 0.3s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation for multiple items */
+.gridItem:nth-child(1) {
+  animation-delay: 0ms;
+}
+.gridItem:nth-child(2) {
+  animation-delay: 50ms;
+}
+.gridItem:nth-child(3) {
+  animation-delay: 100ms;
+}
+.gridItem:nth-child(4) {
+  animation-delay: 150ms;
+}
+.gridItem:nth-child(n + 5) {
+  animation-delay: 200ms;
+}
+
+/* Card hover elevation */
+.cardHover {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardHover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive aspect ratio for images in portrait orientation */
+@media (orientation: portrait) and (max-width: 768px) {
+  .singleImageContainer {
+    height: 128px; /* Smaller on portrait mobile */
+  }
+
+  .multipleImagesContainer .imageWrapper {
+    min-height: 96px;
+  }
+}
+
+/* Responsive aspect ratio for images in landscape orientation */
+@media (orientation: landscape) and (max-width: 800px) {
+  .singleImageContainer {
+    height: 200px; /* Larger on landscape mobile */
+  }
+
+  .multipleImagesContainer .imageWrapper {
+    min-height: 160px;
+  }
+}
+
+/* Loading skeleton animation */
+.skeletonItem {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    90deg,
+    #e2e8f0 0%,
+    #f1f5f9 50%,
+    #e2e8f0 100%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Empty state styling */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+.emptyStateMessage {
+  font-size: 1.125rem;
+  color: #64748b;
+  line-height: 1.75;
+}
+
+/* Print styles - hide images on print */
+@media print {
+  .imageGalleryContainer {
+    display: none;
+  }
+}

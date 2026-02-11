@@ -1,0 +1,197 @@
+/**
+ * Case Study Card Component
+ * Reusable card component for displaying individual case studies
+ * Supports both single and multiple images
+ */
+
+import { CaseStudy } from "../../types/caseStudy";
+import { Card, CardContent } from "../ui/card";
+import { Badge } from "../ui/badge";
+import { ImageWithFallback } from "../figma/ImageWithFallback";
+
+interface CaseStudyCardProps {
+  study: CaseStudy;
+  index: number;
+}
+
+/**
+ * Renders a single case study as an interactive card
+ * Features:
+ * - Responsive layout (image left/right alternating on desktop)
+ * - Support for single or multiple images
+ * - Category and service badges
+ * - Full case study details (challenge, solution, results)
+ * - Optional publication link
+ */
+export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
+  // Alternate image position on desktop (left/right)
+  const isReverseLayout = index % 2 === 1;
+
+  return (
+    <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      <div
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-4 ${
+          isReverseLayout ? "lg:grid-flow-dense" : ""
+        }`}
+      >
+        {/* Image Section */}
+        <ImageSection study={study} isReverse={isReverseLayout} />
+
+        {/* Content Section */}
+        <ContentSection study={study} isReverse={isReverseLayout} />
+      </div>
+    </Card>
+  );
+}
+
+interface ImageSectionProps {
+  study: CaseStudy;
+  isReverse: boolean;
+}
+
+/**
+ * Image display section supporting single or multiple images
+ * Tailwind note: Uses Tailwind for responsive layout
+ * CSS consideration: If you need custom image transitions,
+ * consider adding a separate .module.css file for smooth gallery effects
+ */
+function ImageSection({ study, isReverse }: ImageSectionProps) {
+  return (
+    <div
+      className={`flex flex-col gap-8 items-center justify-center bg-white p-8 lg:p-12 ${
+        isReverse ? "lg:col-start-2" : ""
+      }`}
+    >
+      {Array.isArray(study.images) ? (
+        // Multiple images gallery
+        <div className="w-full space-y-6">
+          {study.images.map((imgSrc: string, i: number) => (
+            <div key={i} className="flex justify-center">
+              <ImageWithFallback
+                src={imgSrc}
+                alt={`${study.title} - visual ${i + 1}`}
+                className="max-h-80 w-auto object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        // Single image
+        <ImageWithFallback
+          src={study.images}
+          alt={study.title}
+          className="max-h-96 w-auto object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow"
+        />
+      )}
+    </div>
+  );
+}
+
+interface ContentSectionProps {
+  study: CaseStudy;
+  isReverse: boolean;
+}
+
+/**
+ * Text content section with study details
+ * Tailwind note: Uses Tailwind for layout and spacing
+ * CSS suggestion: For complex typography hierarchies, consider
+ * creating globals.css classes for consistent heading styles
+ */
+function ContentSection({ study, isReverse }: ContentSectionProps) {
+  return (
+    <CardContent
+      className={`p-6 lg:p-12 ${isReverse ? "lg:col-start-1 lg:row-start-1" : ""}`}
+    >
+      {/* Badges */}
+      <div className="mb-6 flex flex-wrap gap-2">
+        <Badge
+          variant={study.category === "consulting" ? "default" : "secondary"}
+        >
+          {study.category === "consulting" ? "Consulting" : "Product"}
+        </Badge>
+        <Badge variant="outline">{study.service}</Badge>
+      </div>
+
+      {/* Title & Description */}
+      <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-slate-900">
+        {study.title}
+      </h2>
+      <p className="text-base lg:text-lg text-slate-700 mb-8 leading-relaxed">
+        {study.description}
+      </p>
+
+      {/* Details Grid */}
+      <div className="space-y-6">
+        <DetailSection title="Challenge" content={study.challenge} />
+        <DetailSection title="Solution" content={study.solution} />
+
+        {/* Results List */}
+        <div>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Results
+          </h3>
+          <ul className="space-y-3">
+            {study.results.map((result: string, i: number) => (
+              <ResultItem key={i} result={result} />
+            ))}
+          </ul>
+        </div>
+
+        {/* Publication Link */}
+        {study.publicationLink && (
+          <div className="pt-4 border-t border-slate-200">
+            <a
+              href={study.publicationLink.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors group"
+            >
+              {study.publicationLink.label}
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </a>
+          </div>
+        )}
+      </div>
+    </CardContent>
+  );
+}
+
+interface DetailSectionProps {
+  title: string;
+  content: string;
+}
+
+function DetailSection({ title, content }: DetailSectionProps) {
+  return (
+    <div>
+      <h3 className="text-lg font-semibold text-slate-900 mb-2">{title}</h3>
+      <p className="text-slate-600 leading-relaxed">{content}</p>
+    </div>
+  );
+}
+
+interface ResultItemProps {
+  result: string;
+}
+
+/**
+ * Individual result item with checkmark indicator
+ * Tailwind note: Uses Tailwind for flexbox and spacing
+ * CSS suggestion: If you want animated checkmarks on scroll,
+ * consider creating a separate CSS module with animation keyframes
+ */
+function ResultItem({ result }: ResultItemProps) {
+  return (
+    <li className="flex items-start gap-3">
+      <div className="flex-shrink-0 mt-1">
+        <div className="flex items-center justify-center w-5 h-5 rounded-full bg-green-100">
+          <div className="w-2 h-2 rounded-full bg-green-600" />
+        </div>
+      </div>
+      <span className="text-slate-700">{result}</span>
+    </li>
+  );
+}
