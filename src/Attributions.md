@@ -1,3 +1,9 @@
-This Figma Make file includes components from [shadcn/ui](https://ui.shadcn.com/) used under [MIT license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md).
+Attributions
+============
 
-This Figma Make file includes photos from [Unsplash](https://unsplash.com) used under [license](https://unsplash.com/license).
+This project uses a small set of third-party resources. Below is a concise list and what you need to know as a developer or non-developer reviewing the repo.
+
+- UI components: `shadcn/ui` (MIT) — used as a design reference and for component patterns. License: MIT. Link: https://ui.shadcn.com/
+- Images: Unsplash — free to use under Unsplash license. Link: https://unsplash.com/license
+
+If you need a fuller, verbatim attribution list (for legal/marketing), keep a copy of the original Figma/asset sources and add an `ATTRIBUTIONS_FULL.md` file. The short summary above is sufficient for most developer and reviewer workflows.

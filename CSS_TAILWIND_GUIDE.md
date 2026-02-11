@@ -65,95 +65,35 @@
  * - Benefit: Better performance for complex animations
  * - Trade-off: Small additional file size, but animations are smoother
  *   and don't block main thread
- * 
- * FILE STRUCTURE FOR CSS MODULES:
- * src/
- *   styles/
- *     globals.css (current Tailwind imports)
- *     animations.css (shared animations)
- *   components/
- *     caseStudies/
- *       CaseStudyCard.module.css (image gallery animations)
- *       CaseStudyFilters.module.css (filter transitions)
- *       CaseStudyCard.tsx (import styles)
- *       CaseStudyFilters.tsx (import styles)
- * 
- * EXAMPLE CSS MODULE IMPLEMENTATION:
- * 
- * CaseStudyCard.module.css:
- * -----------------
- * .imageGallery {
- *   display: flex;
- *   flex-direction: column;
- *   gap: 1.5rem;
- * }
- * 
- * .galleryImage {
- *   animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
- *   opacity: 0;
- *   animation-fill-mode: forwards;
- * }
- * 
- * .galleryImage:nth-child(1) { animation-delay: 0ms; }
- * .galleryImage:nth-child(2) { animation-delay: 150ms; }
- * 
- * @keyframes slideIn {
- *   from {
- *     opacity: 0;
- *     transform: translateY(20px);
- *   }
- *   to {
- *     opacity: 1;
- *     transform: translateY(0);
- *   }
- * }
- * 
- * .resultItem {
- *   opacity: 0;
- *   transform: translateY(10px);
- * }
- * 
- * .resultItem.visible {
- *   animation: popIn 0.4s ease-out forwards;
- * }
- * 
- * @keyframes popIn {
- *   to {
- *     opacity: 1;
- *     transform: translateY(0);
- *   }
- * }
- * -----------------
- * 
- * Usage in component:
- * import styles from './CaseStudyCard.module.css';
- * 
- * <div className={styles.galleryImage}>
- *   <ImageWithFallback ... />
- * </div>
- * 
- * DECISION MATRIX:
- * 
- * Use Tailwind if:
- * ✓ Simple layout changes
- * ✓ Responsive breakpoints needed
- * ✓ State-based styling (hover, focus)
- * ✓ Color/spacing consistency
- * ✓ Standard components
- * 
- * Use CSS Modules if:
- * ✓ Complex animations
- * ✓ Staggered effects (multiple items)
- * ✓ Performance-critical animations
- * ✓ Reusable animation patterns
- * ✓ Custom easing functions
- * 
- * CURRENT CODEBASE:
- * All components use pure Tailwind - this is fine for now!
- * No complex animations = no need for CSS modules yet.
- * 
- * If you add animations later, create CSS modules in this order:
- * 1. CaseStudyCard.module.css (image reveals)
- * 2. animations.css (shared keyframes)
- * 3. Component-specific modules as needed
- */
+# Tailwind vs custom CSS — recommendations
+
+Current approach
+----------------
+This project uses Tailwind for layout and component styling (buttons, cards, grids). That's the right trade-off for speed and consistency.
+
+When to keep using Tailwind
+---------------------------
+- Layouts: grid, flex, spacing, breakpoints
+- Colors, spacing, and state utilities (hover/focus)
+- Small component tweaks where BEM-like naming isn't needed
+
+When to introduce CSS modules or plain CSS
+-----------------------------------------
+- Complex/performant animations (staggered image reveals, motion that needs keyframes)
+- Cross-component shared keyframes (put in `src/styles/animations.css`)
+- Cases where Tailwind becomes unreadable due to many utilities stacked together
+
+Suggested structure
+-------------------
+- `src/styles/globals.css` — tailwind base imports
+- `src/styles/animations.css` — shared keyframes
+- `src/components/.../*.module.css` — component-specific animations when needed
+
+Quick decision checklist
+-----------------------
+- If it's layout/state: use Tailwind
+- If it's a complex animation or performance-sensitive effect: use a CSS module
+
+Notes
+-----
+Keep Tailwind as the canonical approach; add CSS modules only when they solve a measurable visual/UX need.

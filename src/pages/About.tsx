@@ -2,6 +2,11 @@ import { Card, CardContent } from "../components/ui/card";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Award, Briefcase, GraduationCap, Target } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { Hero } from "../components/shared/Hero";
+import { FeatureGrid } from "../components/shared/FeatureGrid";
+import { PageSection } from "../components/shared/PageSection";
+import { CTA } from "../components/shared/CTA";
+import { Container } from "../components/shared/Container";
 
 export function About() {
   const expertise = [
@@ -48,90 +53,39 @@ export function About() {
 
   return (
     <div>
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-slate-50 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl mb-6">About Me</h1>
-              <p className="text-xl text-slate-700 mb-6">
-                I'm Karishma Gangwani, Ph.D., a Product Leader specializing in clinical and 
-                biological data with expertise in Clinical Decision Support Systems.
-              </p>
-              <p className="text-lg text-slate-600 mb-6">
-                With over 7 years of experience building digital health products, I bridge the gap 
-                between complex technical insights and clinical adoption. My work at St. Jude Children's 
-                Research Hospital focused on oncology biomarker discovery and risk-based patient 
-                stratification tools, replacing legacy standards with real-time, evidence-based solutions.
-              </p>
-              <p className="text-lg text-slate-600">
-                I combine deep technical expertise in data science with strategic product leadership, 
-                data storytelling, and stakeholder management. Currently pursuing an Executive MBA while 
-                continuing to advance digital public goods that serve international research networks.
-              </p>
-            </div>
-            <div>
-              <ImageWithFallback
-                src="/images/327104-014.jpg"
-                alt="Karishma Gangwani"
-                className="rounded-lg shadow-xl w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title={"About Me"}
+        subtitle={
+          "I'm Karishma Gangwani, Ph.D., a Product Leader specializing in clinical and biological data with expertise in Clinical Decision Support Systems."
+        }
+        imageSrc="/images/327104-014.jpg"
+        imageAlt="Karishma Gangwani"
+      />
 
-      {/* Expertise */}
       <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl mb-4">Areas of Expertise</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Bringing diverse experience and proven capabilities to every project
-            </p>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">Bringing diverse experience and proven capabilities to every project</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {expertise.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                  <CardContent className="pt-8 pb-6">
-                    <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="h-8 w-8 text-blue-600" />
-                    </div>
-                    <h3 className="text-xl mb-3">{item.title}</h3>
-                    <p className="text-slate-600">{item.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
+          <FeatureGrid items={expertise} />
+        </Container>
       </section>
 
-      {/* Values */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4">Core Values</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              The principles that guide my work and partnerships
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {values.map((value, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-md">
-                <h3 className="text-xl mb-3">{value.title}</h3>
-                <p className="text-slate-600">{value.description}</p>
-              </div>
-            ))}
-          </div>
+      <PageSection title={"Core Values"} subtitle={"The principles that guide my work and partnerships"} bg={"bg-slate-50"}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {values.map((value, index) => (
+            <div key={index} className="bg-white p-8 rounded-lg shadow-md">
+              <h3 className="text-xl mb-3">{value.title}</h3>
+              <p className="text-slate-600">{value.description}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </PageSection>
 
       {/* Experience Highlights */}
       <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container>
           <h2 className="text-3xl md:text-4xl mb-12 text-center">Professional Journey</h2>
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="border-l-4 border-blue-600 pl-8 py-4">
@@ -181,12 +135,12 @@ export function About() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Recognition */}
       <section className="py-12 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container maxWidth="max-w-4xl">
           <h2 className="text-3xl md:text-4xl mb-12 text-center">Recognition & Impact</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
@@ -209,23 +163,10 @@ export function About() {
             <p className="text-blue-100">• Early Childhood Development Certification (Harvard EdX)</p>
             <p className="text-blue-100">• Data Science Bootcamp (Erdos Institute)</p>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">Let's Connect</h2>
-          <p className="text-xl text-slate-600 mb-8">
-            Interested in working together? I'd love to hear about your project.
-          </p>
-          <a href="/contact">
-            <Button size="lg">
-              Get in Touch
-            </Button>
-          </a>
-        </div>
-      </section>
+      <CTA title={"Let's Connect"} text={"Interested in working together? I'd love to hear about your project."} href="/contact" buttonLabel={"Get in Touch"} />
     </div>
   );
 }

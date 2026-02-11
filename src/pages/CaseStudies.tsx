@@ -10,6 +10,7 @@ import { CaseStudyHeader } from "../components/caseStudies/CaseStudyHeader";
 import { CaseStudyFilters } from "../components/caseStudies/CaseStudyFilters";
 import { CaseStudyCard } from "../components/caseStudies/CaseStudyCard";
 import { CaseStudyCTA } from "../components/caseStudies/CaseStudyCTA";
+import { Container } from "../components/shared/Container";
 
 /**
  * Main case studies page component
@@ -38,13 +39,13 @@ export function CaseStudies() {
 
       {/* Case Studies */}
       <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container>
           <div className="space-y-12">
             {filteredCaseStudies.map((study, index) => (
               <CaseStudyCard key={study.id} study={study} index={index} />
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       <CaseStudyCTA />

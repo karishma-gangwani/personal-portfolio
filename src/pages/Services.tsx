@@ -8,6 +8,9 @@ import {
   FileText 
 } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { Hero } from "../components/shared/Hero";
+import { PageSection } from "../components/shared/PageSection";
+import { CTA } from "../components/shared/CTA";
 
 export function Services() {
   const services = [
@@ -87,20 +90,11 @@ export function Services() {
 
   return (
     <div>
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl mb-6">Comprehensive Consulting Services</h1>
-            <p className="text-xl text-slate-700">
-              Strategic expertise across research, operations, marketing, and communications to 
-              drive measurable business outcomes.
-            </p>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title={"Comprehensive Consulting Services"}
+        subtitle={"Strategic expertise across research, operations, marketing, and communications to drive measurable business outcomes."}
+      />
 
-      {/* Services Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -134,88 +128,50 @@ export function Services() {
         </div>
       </section>
 
-      {/* Approach Section */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl mb-6">My Approach</h2>
-              <p className="text-lg text-slate-700 mb-6">
-                Every project is unique, and I tailor my consulting approach to meet your specific 
-                needs and objectives. My methodology combines:
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    1
-                  </div>
-                  <div>
-                    <h3 className="text-xl mb-2">Discovery & Analysis</h3>
-                    <p className="text-slate-600">
-                      Understanding your challenges, goals, and context through comprehensive research and stakeholder engagement.
-                    </p>
-                  </div>
+      <PageSection title={"My Approach"} bg={"bg-slate-50"}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-lg text-slate-700 mb-6">
+              Every project is unique, and I tailor my consulting approach to meet your specific needs and objectives. My methodology combines:
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-start">
+                <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">1</div>
+                <div>
+                  <h3 className="text-xl mb-2">Discovery & Analysis</h3>
+                  <p className="text-slate-600">Understanding your challenges, goals, and context through comprehensive research and stakeholder engagement.</p>
                 </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    2
-                  </div>
-                  <div>
-                    <h3 className="text-xl mb-2">Strategy Development</h3>
-                    <p className="text-slate-600">
-                      Creating data-driven strategies aligned with your objectives and industry best practices.
-                    </p>
-                  </div>
+              </div>
+              <div className="flex items-start">
+                <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">2</div>
+                <div>
+                  <h3 className="text-xl mb-2">Strategy Development</h3>
+                  <p className="text-slate-600">Creating data-driven strategies aligned with your objectives and industry best practices.</p>
                 </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    3
-                  </div>
-                  <div>
-                    <h3 className="text-xl mb-2">Implementation Support</h3>
-                    <p className="text-slate-600">
-                      Guiding execution with actionable recommendations and ongoing support to ensure success.
-                    </p>
-                  </div>
+              </div>
+              <div className="flex items-start">
+                <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">3</div>
+                <div>
+                  <h3 className="text-xl mb-2">Implementation Support</h3>
+                  <p className="text-slate-600">Guiding execution with actionable recommendations and ongoing support to ensure success.</p>
                 </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    4
-                  </div>
-                  <div>
-                    <h3 className="text-xl mb-2">Measurement & Optimization</h3>
-                    <p className="text-slate-600">
-                      Tracking results and continuously refining strategies to maximize impact and ROI.
-                    </p>
-                  </div>
+              </div>
+              <div className="flex items-start">
+                <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">4</div>
+                <div>
+                  <h3 className="text-xl mb-2">Measurement & Optimization</h3>
+                  <p className="text-slate-600">Tracking results and continuously refining strategies to maximize impact and ROI.</p>
                 </div>
               </div>
             </div>
-            <div>
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1770259406678-420c4adc44f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXJrZXRpbmclMjBicmFuZGluZyUyMGNyZWF0aXZlJTIwd29ya3NwYWNlfGVufDF8fHx8MTc3MDcxMzYzNHww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Consulting approach"
-                className="rounded-lg shadow-xl w-full h-auto"
-              />
-            </div>
+          </div>
+          <div>
+            <ImageWithFallback src="https://images.unsplash.com/photo-1770259406678-420c4adc44f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXJrZXRpbmclMjBicmFuZGluZyUyMGNyZWF0aXZlJTIwd29ya3NwYWNlfGVufDF8fHx8MTc3MDcxMzYzNHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Consulting approach" className="rounded-lg shadow-xl w-full h-auto" />
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      {/* CTA Section */}
-      <section className="py-12 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">Let's Work Together</h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Ready to take your business to the next level? Get in touch to discuss your project.
-          </p>
-          <a href="/contact">
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
-              Contact Me
-            </button>
-          </a>
-        </div>
-      </section>
+      <CTA title={"Let's Work Together"} text={"Ready to take your business to the next level? Get in touch to discuss your project."} href="/contact" buttonLabel={"Contact Me"} />
     </div>
   );
 }

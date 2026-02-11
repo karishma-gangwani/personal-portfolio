@@ -1,6 +1,7 @@
 import { Outlet, Link, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Container } from "./shared/Container";
 
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,8 +26,9 @@ export function Layout() {
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="bg-white border-b sticky top-0 z-50">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <nav>
+          <Container>
+            <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center">
               <span className="text-xl font-semibold text-slate-900">
@@ -83,6 +85,7 @@ export function Layout() {
               ))}
             </div>
           )}
+          </Container>
         </nav>
       </header>
 
@@ -93,7 +96,7 @@ export function Layout() {
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Container className="py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-lg font-semibold mb-4">Karishma Gangwani, Ph.D.</h3>
@@ -143,7 +146,7 @@ export function Layout() {
           <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-400">
             <p>&copy; {new Date().getFullYear()} Karishma Gangwani. All rights reserved.</p>
           </div>
-        </div>
+        </Container>
       </footer>
     </div>
   );
