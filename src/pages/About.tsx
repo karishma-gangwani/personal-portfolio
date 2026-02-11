@@ -72,7 +72,7 @@ export function About() {
             </div>
             <div>
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1612116144183-d1ba477239f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGNvbnN1bHRhbnR8ZW58MXx8fHwxNzcwNjI4NjM2fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                src="/images/327104-014.jpg"
                 alt="Karishma Gangwani"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
