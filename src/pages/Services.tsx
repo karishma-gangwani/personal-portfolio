@@ -52,7 +52,7 @@ export function Services() {
     },
     {
       icon: MessageSquare,
-      title: "Science Communications",
+      title: "Science Communications & Brand Building",
       description: "Translating complex scientific and technical concepts into compelling narratives for diverse audiences.",
       details: [
         "Scientific writing & editing",
