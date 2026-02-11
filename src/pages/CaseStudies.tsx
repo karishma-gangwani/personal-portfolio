@@ -19,11 +19,12 @@ import { Container } from "../components/shared/Container";
  */
 export function CaseStudies() {
   const {
-    selectedCategory,
-    selectedSector,
+    selectedCategories,
+    selectedSectors,
     filteredCaseStudies,
-    setSelectedCategory,
-    setSelectedSector,
+    toggleCategory,
+    toggleSector,
+    resetFilters,
   } = useCaseStudyFilters(CASE_STUDIES_DATA);
 
   return (
@@ -31,10 +32,11 @@ export function CaseStudies() {
       <CaseStudyHeader />
 
       <CaseStudyFilters
-        selectedCategory={selectedCategory}
-        selectedSector={selectedSector}
-        onCategoryChange={setSelectedCategory}
-        onSectorChange={setSelectedSector}
+        selectedCategories={selectedCategories}
+        selectedSectors={selectedSectors}
+        onToggleCategory={toggleCategory}
+        onToggleSector={toggleSector}
+        resetFilters={resetFilters}
       />
 
       {/* Case Studies */}

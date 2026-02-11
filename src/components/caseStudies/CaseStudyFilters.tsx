@@ -4,108 +4,92 @@
  * Supports filtering by category and sector
  */
 
-import { Button } from "../ui/button";
-import { CategoryFilter, SectorFilter } from "../../types/caseStudy";
+import { CategoryType, SectorType } from "../../types/caseStudy";
 
 interface CaseStudyFiltersProps {
-  selectedCategory: CategoryFilter;
-  selectedSector: SectorFilter;
-  onCategoryChange: (category: CategoryFilter) => void;
-  onSectorChange: (sector: SectorFilter) => void;
+  selectedCategories: CategoryType[];
+  selectedSectors: SectorType[];
+  onToggleCategory: (category: CategoryType) => void;
+  onToggleSector: (sector: SectorType) => void;
+  resetFilters: () => void;
 }
 
-/**
- * Renders filter controls for case studies
- * Features:
- * - Category filter (All, Consulting, Product)
- * - Sector filter (All, Healthcare, Pharma, Research, Nonprofit)
- * - Responsive button layout
- * - Active state indicators
- */
+const CATEGORY_OPTIONS: { label: string; value: CategoryType }[] = [
+  { label: "Consulting", value: "consulting" },
+  { label: "Product Development", value: "product" },
+];
+
+const SECTOR_OPTIONS: { label: string; value: SectorType }[] = [
+  { label: "Healthcare", value: "healthcare" },
+  { label: "Pharma", value: "pharma" },
+  { label: "Research", value: "research" },
+  { label: "Nonprofit", value: "nonprofit" },
+];
+
+/** Single horizontal filter bar with multi-select chips */
 export function CaseStudyFilters({
-  selectedCategory,
-  selectedSector,
-  onCategoryChange,
-  onSectorChange,
+  selectedCategories,
+  selectedSectors,
+  onToggleCategory,
+  onToggleSector,
+  resetFilters,
 }: CaseStudyFiltersProps) {
   return (
-    <section className="bg-white border-b sticky top-16 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-        {/* Category Filters */}
-        <FilterGroup
-          label="Filter by Type:"
-          buttons={[
-            { label: "All Projects", value: "all" as const },
-            { label: "Consulting", value: "consulting" as const },
-            { label: "Product Development", value: "product" as const },
-          ]}
-          selectedValue={selectedCategory}
-          onSelect={onCategoryChange}
-        />
+    <section className="bg-white border-b sticky top-20 z-40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="text-sm font-semibold text-slate-600 mr-2">Filter:</span>
 
-        {/* Sector Filters */}
-        <FilterGroup
-          label="Filter by Sector:"
-          buttons={[
-            { label: "All Sectors", value: "all" as const },
-            { label: "Healthcare", value: "healthcare" as const },
-            { label: "Pharma", value: "pharma" as const },
-            { label: "Research", value: "research" as const },
-            { label: "Nonprofit", value: "nonprofit" as const },
-          ]}
-          selectedValue={selectedSector}
-          onSelect={onSectorChange}
-          isSmall
-        />
+            {/* Category chips */}
+            {CATEGORY_OPTIONS.map((opt) => {
+              const active = selectedCategories.includes(opt.value);
+              return (
+                <button
+                  key={opt.value}
+                  onClick={() => onToggleCategory(opt.value)}
+                  aria-pressed={active}
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm border transition-all duration-150 ${
+                    active
+                      ? "bg-slate-900 text-white border-slate-900"
+                      : "bg-white text-slate-700 border-slate-200"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              );
+            })}
+
+            {/* Sector chips */}
+            {SECTOR_OPTIONS.map((opt) => {
+              const active = selectedSectors.includes(opt.value);
+              return (
+                <button
+                  key={opt.value}
+                  onClick={() => onToggleSector(opt.value)}
+                  aria-pressed={active}
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm border transition-all duration-150 ${
+                    active
+                      ? "bg-slate-900 text-white border-slate-900"
+                      : "bg-white text-slate-700 border-slate-200"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="ml-auto flex items-center gap-3">
+            <button
+              onClick={resetFilters}
+              className="text-sm text-slate-600 hover:text-slate-900"
+            >
+              Reset Filters
+            </button>
+          </div>
+        </div>
       </div>
     </section>
-  );
-}
-
-interface FilterButton {
-  label: string;
-  value: string;
-}
-
-interface FilterGroupProps {
-  label: string;
-  buttons: FilterButton[];
-  selectedValue: string;
-  onSelect: (value: any) => void;
-  isSmall?: boolean;
-}
-
-/**
- * Reusable filter button group component
- * Tailwind note: Uses Tailwind for responsive layout (flex-wrap)
- * CSS suggestion: For animated button states, consider custom CSS
- * with smooth transitions on background-color and border-color
- */
-function FilterGroup({
-  label,
-  buttons,
-  selectedValue,
-  onSelect,
-  isSmall = false,
-}: FilterGroupProps) {
-  return (
-    <div>
-      <label className="text-sm font-semibold text-slate-600 block mb-3">
-        {label}
-      </label>
-      <div className="flex flex-wrap gap-3">
-        {buttons.map((button) => (
-          <Button
-            key={button.value}
-            variant={selectedValue === button.value ? "default" : "outline"}
-            size={isSmall ? "sm" : "default"}
-            onClick={() => onSelect(button.value)}
-            className="transition-all duration-200"
-          >
-            {button.label}
-          </Button>
-        ))}
-      </div>
-    </div>
   );
 }

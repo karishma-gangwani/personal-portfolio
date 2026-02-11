@@ -6,7 +6,6 @@
 
 import { CaseStudy } from "../../types/caseStudy";
 import { Card, CardContent } from "../ui/card";
-import { Badge } from "../ui/badge";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 
 interface CaseStudyCardProps {
@@ -28,12 +27,13 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
   const isReverseLayout = index % 2 === 1;
 
   return (
-    <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <div
-        className={`grid grid-cols-1 lg:grid-cols-2 gap-4 ${
-          isReverseLayout ? "lg:grid-flow-dense" : ""
-        }`}
-      >
+    <a href={`/case-studies/${study.id}`} className="no-underline block">
+      <Card className="overflow-hidden transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl h-full">
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch ${
+            isReverseLayout ? "lg:grid-flow-dense" : ""
+          }`}
+        >
         {/* Image Section */}
         <ImageSection study={study} isReverse={isReverseLayout} />
 
@@ -41,6 +41,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
         <ContentSection study={study} isReverse={isReverseLayout} />
       </div>
     </Card>
+    </a>
   );
 }
 
@@ -58,30 +59,34 @@ interface ImageSectionProps {
 function ImageSection({ study, isReverse }: ImageSectionProps) {
   return (
     <div
-      className={`flex flex-col gap-8 items-center justify-center bg-white p-8 lg:p-12 ${
+      className={`flex flex-col gap-8 items-center justify-center bg-white p-8 ${
         isReverse ? "lg:col-start-2" : ""
       }`}
     >
       {Array.isArray(study.images) ? (
-        // Multiple images gallery
         <div className="w-full space-y-6">
           {study.images.map((imgSrc: string, i: number) => (
-            <div key={i} className="flex justify-center">
-              <ImageWithFallback
-                src={imgSrc}
-                alt={`${study.title} - visual ${i + 1}`}
-                className="max-h-80 w-auto object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow"
-              />
+            <div key={i} className="w-full">
+              <div className="w-full aspect-[16/9] overflow-hidden rounded-lg">
+                <ImageWithFallback
+                  src={imgSrc}
+                  alt={`${study.title} - visual ${i + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-300"
+                />
+              </div>
             </div>
           ))}
         </div>
       ) : (
-        // Single image
-        <ImageWithFallback
-          src={study.images}
-          alt={study.title}
-          className="max-h-96 w-auto object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow"
-        />
+        <div className="w-full">
+          <div className="w-full aspect-[16/9] overflow-hidden rounded-lg">
+            <ImageWithFallback
+              src={study.images}
+              alt={study.title}
+              className="w-full h-full object-cover transition-transform duration-300"
+            />
+          </div>
+        </div>
       )}
     </div>
   );
@@ -101,23 +106,18 @@ interface ContentSectionProps {
 function ContentSection({ study, isReverse }: ContentSectionProps) {
   return (
     <CardContent
-      className={`p-6 lg:p-12 ${isReverse ? "lg:col-start-1 lg:row-start-1" : ""}`}
+      className={`p-8 flex flex-col justify-between ${isReverse ? "lg:col-start-1 lg:row-start-1" : ""}`}
     >
-      {/* Badges */}
-      <div className="mb-6 flex flex-wrap gap-2">
-        <Badge
-          variant={study.category === "consulting" ? "default" : "secondary"}
-        >
-          {study.category === "consulting" ? "Consulting" : "Product"}
-        </Badge>
-        <Badge variant="outline">{study.service}</Badge>
+      {/* keep metadata inline without badges (clean) */}
+      <div className="mb-6">
+        <div className="text-sm text-slate-500 mb-2">{study.service}</div>
       </div>
 
       {/* Title & Description */}
       <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-slate-900">
         {study.title}
       </h2>
-      <p className="text-base lg:text-lg text-slate-700 mb-8 leading-relaxed">
+      <p className="text-base text-slate-700 mb-8 leading-relaxed">
         {study.description}
       </p>
 
@@ -156,7 +156,7 @@ function ContentSection({ study, isReverse }: ContentSectionProps) {
         )}
       </div>
     </CardContent>
-  );
+    );
 }
 
 interface DetailSectionProps {
