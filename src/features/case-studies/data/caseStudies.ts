@@ -4,7 +4,7 @@
  * This separation allows easy updates and reuse across the application
  */
 
-import { CaseStudy } from "./caseStudy";
+import { CaseStudy } from "../types/caseStudy";
 
 export const CASE_STUDIES_DATA: CaseStudy[] = [
   {

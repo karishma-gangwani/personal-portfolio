@@ -9,39 +9,72 @@ import { ServicesList } from "../components/shared/ServicesList";
 import { CTA } from "../components/shared/CTA";
 import { Container } from "../components/shared/Container";
 
+const highlights = [
+  {
+    icon: Target,
+    title: "Product Strategy",
+    description:
+      "Digital health products & Clinical Decision Support Systems with proven clinical adoption.",
+  },
+  {
+    icon: Users,
+    title: "Clinical Data Expertise",
+    description: "Biomarker discovery, patient stratification, and multi-omic data integration.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Data Storytelling",
+    description: "Bridging technical insights with stakeholder communication for funding success.",
+  },
+  {
+    icon: Award,
+    title: "Process Excellence",
+    description: "Data governance, compliance (WCAG, HIPAA), and operational optimization.",
+  },
+];
+
+const services = [
+  "Digital Health & Clinical Decision Support",
+  "Product Strategy & Development",
+  "Data Science & Analytics",
+  "Communications & Brand Building",
+  "Grant Writing & Funding Strategy",
+  "Market Research & Operations",
+];
+
+const featuredCaseStudies = [
+  {
+    category: "Consulting",
+    categoryClassName: "bg-blue-100 text-blue-800",
+    title: "Research & Analysis Projects",
+    description:
+      "Strategic research initiatives delivering actionable insights for science and policy domains.",
+    image:
+      "https://images.unsplash.com/photo-1614934273523-1c9f0f666c33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNlYXJjaCUyMGxhYm9yYXRvcnklMjBzY2llbmNlfGVufDF8fHx8MTc3MDYyOTA1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+    imageAlt: "Research consulting",
+  },
+  {
+    category: "Product Development",
+    categoryClassName: "bg-green-100 text-green-800",
+    title: "Product Leadership",
+    description:
+      "End-to-end product development and strategy for innovative technology solutions.",
+    image:
+      "https://images.unsplash.com/photo-1613843439331-2080752b4518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9kdWN0JTIwZGV2ZWxvcG1lbnQlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc3MDcxMzYzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+    imageAlt: "Product development",
+  },
+];
+
+function SectionHeader({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="mb-16 text-center">
+      <h2 className="mb-4 text-3xl md:text-4xl">{title}</h2>
+      <p className="mx-auto max-w-2xl text-lg text-slate-600">{description}</p>
+    </div>
+  );
+}
+
 export function Home() {
-  const highlights = [
-    {
-      icon: Target,
-      title: "Product Strategy",
-      description: "Digital health products & Clinical Decision Support Systems with proven clinical adoption.",
-    },
-    {
-      icon: Users,
-      title: "Clinical Data Expertise",
-      description: "Biomarker discovery, patient stratification, and multi-omic data integration.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Data Storytelling",
-      description: "Bridging technical insights with stakeholder communication for funding success.",
-    },
-    {
-      icon: Award,
-      title: "Process Excellence",
-      description: "Data governance, compliance (WCAG, HIPAA), and operational optimization.",
-    },
-  ];
-
-  const services = [
-    "Digital Health & Clinical Decision Support",
-    "Product Strategy & Development",
-    "Data Science & Analytics",
-    "Communications & Brand Building",
-    "Grant Writing & Funding Strategy",
-    "Market Research & Operations",
-  ];
-
   return (
     <div>
       <Hero
@@ -72,12 +105,10 @@ export function Home() {
 
       <section className="py-12 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4">What I Offer</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Comprehensive consulting services tailored to drive your business forward
-            </p>
-          </div>
+          <SectionHeader
+            title="What I Offer"
+            description="Comprehensive consulting services tailored to drive your business forward"
+          />
           <FeatureGrid items={highlights} />
         </Container>
       </section>
@@ -91,7 +122,7 @@ export function Home() {
             <div>
               <h2 className="text-3xl md:text-4xl mb-6">Expertise Across Domains</h2>
               <p className="text-lg text-slate-700 mb-8">
-                With extensive experience in both consulting and product development, I provide 
+                With extensive experience in both consulting and product development, I provide
                 strategic guidance across multiple disciplines.
               </p>
               <ServicesList services={services} />
@@ -116,45 +147,25 @@ export function Home() {
       {/* Case Studies Preview */}
       <section className="py-12 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4">Featured Case Studies</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Explore successful projects across consulting and product development
-            </p>
-          </div>
+          <SectionHeader
+            title="Featured Case Studies"
+            description="Explore successful projects across consulting and product development"
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1614934273523-1c9f0f666c33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNlYXJjaCUyMGxhYm9yYXRvcnklMjBzY2llbmNlfGVufDF8fHx8MTc3MDYyOTA1MHww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Research consulting"
-                className="w-full h-64 object-cover"
-              />
-              <CardContent className="p-6">
-                <div className="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full mb-3">
-                  Consulting
-                </div>
-                <h3 className="text-xl mb-2">Research & Analysis Projects</h3>
-                <p className="text-slate-600 mb-4">
-                  Strategic research initiatives delivering actionable insights for science and policy domains.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1613843439331-2080752b4518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9kdWN0JTIwZGV2ZWxvcG1lbnQlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc3MDcxMzYzNXww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Product development"
-                className="w-full h-64 object-cover"
-              />
-              <CardContent className="p-6">
-                <div className="inline-block bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full mb-3">
-                  Product Development
-                </div>
-                <h3 className="text-xl mb-2">Product Leadership</h3>
-                <p className="text-slate-600 mb-4">
-                  End-to-end product development and strategy for innovative technology solutions.
-                </p>
-              </CardContent>
-            </Card>
+            {featuredCaseStudies.map((item) => (
+              <Card key={item.title} className="overflow-hidden transition-shadow hover:shadow-xl">
+                <ImageWithFallback src={item.image} alt={item.imageAlt} className="h-64 w-full object-cover" />
+                <CardContent className="p-6">
+                  <div
+                    className={`mb-3 inline-block rounded-full px-3 py-1 text-xs ${item.categoryClassName}`}
+                  >
+                    {item.category}
+                  </div>
+                  <h3 className="mb-2 text-xl">{item.title}</h3>
+                  <p className="mb-4 text-slate-600">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
           <div className="text-center">
             <Link to="/case-studies">

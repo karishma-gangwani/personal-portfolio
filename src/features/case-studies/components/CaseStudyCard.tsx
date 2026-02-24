@@ -4,9 +4,9 @@
  * Supports both single and multiple images
  */
 
-import { CaseStudy } from "../../types/caseStudy";
-import { Card, CardContent } from "../ui/card";
-import { ImageWithFallback } from "../figma/ImageWithFallback";
+import { CaseStudy } from "../types/caseStudy";
+import { Card, CardContent } from "../../../components/ui/card";
+import { ImageWithFallback } from "../../../components/figma/ImageWithFallback";
 
 interface CaseStudyCardProps {
   study: CaseStudy;

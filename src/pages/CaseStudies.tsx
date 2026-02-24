@@ -4,12 +4,12 @@
  * Uses reusable components and centralized data
  */
 
-import { CASE_STUDIES_DATA } from "../data/caseStudies";
-import { useCaseStudyFilters } from "../hooks/useCaseStudyFilters";
-import { CaseStudyHeader } from "../components/caseStudies/CaseStudyHeader";
-import { CaseStudyFilters } from "../components/caseStudies/CaseStudyFilters";
-import { CaseStudyCard } from "../components/caseStudies/CaseStudyCard";
-import { CaseStudyCTA } from "../components/caseStudies/CaseStudyCTA";
+import { CASE_STUDIES_DATA } from "../features/case-studies/data/caseStudies";
+import { useCaseStudyFilters } from "../features/case-studies/hooks/useCaseStudyFilters";
+import { CaseStudyHeader } from "../features/case-studies/components/CaseStudyHeader";
+import { CaseStudyFilters } from "../features/case-studies/components/CaseStudyFilters";
+import { CaseStudyCard } from "../features/case-studies/components/CaseStudyCard";
+import { CaseStudyCTA } from "../features/case-studies/components/CaseStudyCTA";
 import { Container } from "../components/shared/Container";
 
 /**
