@@ -1,9 +1,16 @@
-node_modules/
+# Ignore CNAME file
+CNAME
 
 # Build output
-build/
 dist/
-coverage/
+build/
+out/
 
-# Local/system files
+# Dependency directories
+node_modules/
+
+# Logs
+*.log
+
+# OS files
 .DS_Store
