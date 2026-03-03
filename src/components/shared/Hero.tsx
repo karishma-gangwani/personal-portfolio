@@ -1,7 +1,5 @@
 import React from "react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
-import { Button } from "../ui/button";
-import { Link } from "react-router";
 
 type HeroProps = {
   title: React.ReactNode;

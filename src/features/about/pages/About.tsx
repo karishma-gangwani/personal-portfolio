@@ -1,5 +1,3 @@
-import { Card, CardContent } from "../../../components/ui/card";
-import { ImageWithFallback } from "../../../components/figma/ImageWithFallback";
 import { Award, Briefcase, GraduationCap, Target } from "lucide-react";
 import { Hero } from "../../../components/shared/Hero";
 import { FeatureGrid } from "../../../components/shared/FeatureGrid";
