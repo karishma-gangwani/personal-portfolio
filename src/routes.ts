@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { Services } from "./pages/Services";
-import { CaseStudies } from "./pages/CaseStudies";
+import { CaseStudies, CaseStudyDetail } from "./features/case-studies";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 
@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
       { index: true, Component: Home },
       { path: "services", Component: Services },
       { path: "case-studies", Component: CaseStudies },
+      { path: "case-studies/:id", Component: CaseStudyDetail },
       { path: "about", Component: About },
       { path: "contact", Component: Contact },
     ],

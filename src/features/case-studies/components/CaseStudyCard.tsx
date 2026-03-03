@@ -7,6 +7,7 @@
 import { CaseStudy } from "../types/caseStudy";
 import { Card, CardContent } from "../../../components/ui/card";
 import { ImageWithFallback } from "../../../components/figma/ImageWithFallback";
+import { Link } from "react-router";
 
 interface CaseStudyCardProps {
   study: CaseStudy;
@@ -27,13 +28,12 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
   const isReverseLayout = index % 2 === 1;
 
   return (
-    <a href={`/case-studies/${study.id}`} className="no-underline block">
-      <Card className="overflow-hidden transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl h-full">
-        <div
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch ${
-            isReverseLayout ? "lg:grid-flow-dense" : ""
-          }`}
-        >
+    <Card className="overflow-hidden transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl h-full">
+      <div
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch ${
+          isReverseLayout ? "lg:grid-flow-dense" : ""
+        }`}
+      >
         {/* Image Section */}
         <ImageSection study={study} isReverse={isReverseLayout} />
 
@@ -41,7 +41,6 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
         <ContentSection study={study} isReverse={isReverseLayout} />
       </div>
     </Card>
-    </a>
   );
 }
 
@@ -148,6 +147,16 @@ function ContentSection({ study, isReverse }: ContentSectionProps) {
               </a>
             </div>
           )}
+
+          <div>
+            <Link
+              to={`/case-studies/${study.id}`}
+              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+            >
+              View Full Case Study
+              <span className="ml-2 transition-transform">→</span>
+            </Link>
+          </div>
         </div>
       </div>
     </CardContent>
