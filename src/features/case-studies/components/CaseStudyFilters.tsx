@@ -4,7 +4,7 @@
  * Supports filtering by category and sector
  */
 
-import { CategoryType, SectorType } from "../../types/caseStudy";
+import { CategoryType, SectorType } from "../types/caseStudy";
 
 interface CaseStudyFiltersProps {
   selectedCategories: CategoryType[];

@@ -4,7 +4,7 @@
  * Adapts to viewport size and automatically reflows when items are filtered
  */
 
-import { CaseStudy } from "../../types/caseStudy";
+import { CaseStudy } from "../types/caseStudy";
 import { CaseStudyCard } from "./CaseStudyCard";
 
 interface CaseStudiesGridProps {
