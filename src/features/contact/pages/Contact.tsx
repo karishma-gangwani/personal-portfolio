@@ -1,45 +1,11 @@
-import { useState } from "react";
-import { Card, CardContent } from "../components/ui/card";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Textarea } from "../components/ui/textarea";
-import { Label } from "../components/ui/label";
+import { Card, CardContent } from "../../../components/ui/card";
 import { Mail, Linkedin, Phone, MapPin } from "lucide-react";
-import { Hero } from "../components/shared/Hero";
-import { PageSection } from "../components/shared/PageSection";
-import { ContactForm } from "../components/shared/ContactForm";
-import { CTA } from "../components/shared/CTA";
+import { Hero } from "../../../components/shared/Hero";
+import { PageSection } from "../../../components/shared/PageSection";
+import { ContactForm } from "../../../components/shared/ContactForm";
+import { CTA } from "../../../components/shared/CTA";
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real implementation, this would send to a backend
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const contactInfo = [
     {
       icon: Mail,

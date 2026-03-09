@@ -8,8 +8,6 @@ import {
   CaseStudy,
   CategoryType,
   SectorType,
-  CategoryFilter,
-  SectorFilter,
 } from "../types/caseStudy";
 
 export interface UseCaseStudyFiltersReturn {

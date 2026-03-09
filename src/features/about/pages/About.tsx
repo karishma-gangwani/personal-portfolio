@@ -1,12 +1,9 @@
-import { Card, CardContent } from "../components/ui/card";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Award, Briefcase, GraduationCap, Target } from "lucide-react";
-import { Button } from "../components/ui/button";
-import { Hero } from "../components/shared/Hero";
-import { FeatureGrid } from "../components/shared/FeatureGrid";
-import { PageSection } from "../components/shared/PageSection";
-import { CTA } from "../components/shared/CTA";
-import { Container } from "../components/shared/Container";
+import { Hero } from "../../../components/shared/Hero";
+import { FeatureGrid } from "../../../components/shared/FeatureGrid";
+import { PageSection } from "../../../components/shared/PageSection";
+import { CTA } from "../../../components/shared/CTA";
+import { Container } from "../../../components/shared/Container";
 
 export function About() {
   const expertise = [

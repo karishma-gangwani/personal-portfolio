@@ -1,13 +1,13 @@
 import { Link } from "react-router";
 import { ArrowRight, Target, Users, TrendingUp, Award } from "lucide-react";
-import { Button } from "../components/ui/button";
-import { Card, CardContent } from "../components/ui/card";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { Hero } from "../components/shared/Hero";
-import { FeatureGrid } from "../components/shared/FeatureGrid";
-import { ServicesList } from "../components/shared/ServicesList";
-import { CTA } from "../components/shared/CTA";
-import { Container } from "../components/shared/Container";
+import { Button } from "../../../components/ui/button";
+import { Card, CardContent } from "../../../components/ui/card";
+import { ImageWithFallback } from "../../../components/figma/ImageWithFallback";
+import { Hero } from "../../../components/shared/Hero";
+import { FeatureGrid } from "../../../components/shared/FeatureGrid";
+import { ServicesList } from "../../../components/shared/ServicesList";
+import { CTA } from "../../../components/shared/CTA";
+import { Container } from "../../../components/shared/Container";
 
 const highlights = [
   {

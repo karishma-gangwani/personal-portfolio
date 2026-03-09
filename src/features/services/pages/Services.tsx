@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
 import { 
   FlaskConical, 
   Settings, 
@@ -7,10 +7,10 @@ import {
   DollarSign, 
   FileText 
 } from "lucide-react";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { Hero } from "../components/shared/Hero";
-import { PageSection } from "../components/shared/PageSection";
-import { CTA } from "../components/shared/CTA";
+import { ImageWithFallback } from "../../../components/figma/ImageWithFallback";
+import { Hero } from "../../../components/shared/Hero";
+import { PageSection } from "../../../components/shared/PageSection";
+import { CTA } from "../../../components/shared/CTA";
 
 export function Services() {
   const services = [

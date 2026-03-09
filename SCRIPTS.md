@@ -24,7 +24,7 @@ Why Cypress?
 - It is easy for non-developers to use via `cypress open` (GUI) and for CI via `cypress run`.
 
 Scripts
-- `npm run e2e` — run Cypress headless (CI-friendly). Must have the site running on `http://localhost:5173` (the project's `cypress.config.ts` sets this baseUrl).
+- `npm run e2e` — run Cypress headless (CI-friendly). Must have the site running on `http://localhost:3000` (the project's `cypress.config.ts` sets this baseUrl).
 - `npm run e2e:open` — open Cypress interactive GUI (good for exploratory testing and non-dev reviewers).
 
 How to run e2e locally (recommended)
@@ -47,12 +47,12 @@ Notes for CI
 
   ```bash
   npm run build
-  npx http-server build -p 5173 &
+  npx http-server build -p 3000 &
   npm run e2e
   ```
 
 Troubleshooting
-- If Cypress reports the server is not running, ensure the dev server is listening on `http://localhost:5173`.
+- If Cypress reports the server is not running, ensure the dev server is listening on `http://localhost:3000`.
 - For flaky tests, use `cy.wait()` sparingly and prefer checking for elements with `cy.get()` + `should('exist')`.
 
 When to add more tests
