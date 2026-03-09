@@ -13,6 +13,7 @@ export default defineConfig({
     setupFiles: ["./src/setupTests.ts"],
     globals: true,
     coverage: {
+      provider: "v8",
       reporter: ["text", "html"]
     }
   }
